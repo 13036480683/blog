@@ -8,3 +8,18 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
   thymeleaf:
     cache: false
+#静态资源光放行不行，还要配置路径
+  resources:
+    static-locations: classpath:/static
+  mvc:
+    static-path-pattern: static/**
+
+
+#showSQL
+logging:
+  level:
+    com:
+      xx:
+        blog:
+          mapper: debug
+
