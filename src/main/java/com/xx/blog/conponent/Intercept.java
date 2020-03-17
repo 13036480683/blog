@@ -13,8 +13,9 @@ public class Intercept implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         if (request.getSession().getAttribute("loginUser") == null) {
-            request.setAttribute("msg", "别想登了，你没机会");
-            request.getRequestDispatcher("/login").forward(request, response);
+//            request.setAttribute("msg", "别想登了，你没机会");
+//            request.getRequestDispatcher("/login").forward(request, response);
+//            request.getRequestDispatcher("/index");
             return false;
         }
         return true;

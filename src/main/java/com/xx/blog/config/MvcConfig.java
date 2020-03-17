@@ -24,7 +24,7 @@ public class MvcConfig implements WebMvcConfigurer {
              */
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
-                registry.addRedirectViewController("main", "index.html");
+                registry.addRedirectViewController("main", "index");
             }
 
 
@@ -35,6 +35,7 @@ public class MvcConfig implements WebMvcConfigurer {
 //            public void addResourceHandlers(ResourceHandlerRegistry registry) {
 //                registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
 //            }
+
             /**
              * 登陆拦截器
              * @param registry
@@ -44,10 +45,9 @@ public class MvcConfig implements WebMvcConfigurer {
                 //将自己配置的拦截器注册到这里来
                 registry.addInterceptor(new Intercept())
                         .addPathPatterns("/**")
-                        //资源放行
-                        .excludePathPatterns("/login", "/index","/static/**");
-            }
+                        .excludePathPatterns("/index", "/login", "/","/error", "/static/**");//资源放行
 
+            }
         };
 
 

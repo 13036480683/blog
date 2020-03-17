@@ -23,3 +23,9 @@ logging:
         blog:
           mapper: debug
 
+package:
+  controller: com.xx.blog.controller
+  entity: com.xx.blog.entity
+  mapper: com.xx.blog.mapper
+  service: com.xx.blog.service
+  impl: com.xx.blog.service.impl

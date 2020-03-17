@@ -1,7 +1,6 @@
 package com.xx.blog.mapper;
 
 import com.xx.blog.entity.User;
-import jdk.nashorn.internal.ir.annotations.Reference;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 

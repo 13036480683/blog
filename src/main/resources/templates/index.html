@@ -1,10 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
-    <title>index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModuoModuo</title>
+
+    <link rel="stylesheet" th:href="@{static/css/semantic.min.css}">
+    <link rel="stylesheet" th:href="@{static/css/sidebar.css}">
+    <script th:src="@{static/jquery/jquery.min.js}"></script>
+    <script th:src="@{static/js/visibility.min.js}"></script>
+    <script th:src="@{static/js/sidebar.js}"></script>
+    <script th:src="@{static/js/transition.js}"></script>
+
+    <!--    <link rel="stylesheet" href="../static/css/semantic.min.css">-->
+    <!--    <link rel="stylesheet" href="../static/css/sidebar.css">-->
+    <!--    <script src="../static/jquery/jquery.min.js"></script>-->
+    <!--    <script src="../static/js/visibility.min.js"></script>-->
+    <!--    <script src="../static/js/sidebar.js"></script>-->
+    <!--    <script src="../static/js/transition.js"></script>-->
 </head>
+<script>
+    $(document)
+        .ready(function () {
+            // fix main menu to page on passing
+            $('.overlay').visibility({
+                type: 'fixed',
+                offset: 80
+            });
+
+            // fix menu when passed
+            $('.masthead')
+                .visibility({
+                    once: false,
+                    onBottomPassed: function () {
+                        $('.fixed.menu').transition('fade in');
+                    },
+                    onBottomPassedReverse: function () {
+                        $('.fixed.menu').transition('fade out');
+                    }
+                });
+
+            // create sidebar and attach to menu open
+            $('.ui.sidebar')
+                .sidebar('attach events', '.toc.item');
+        });
+</script>
+<style>
+    body {
+        background-color: #FFFFFF;
+    }
+
+    /* 这个别删 */
+
+    .overlay {
+        float: left;
+        margin: 0em 3em 1em 0em;
+    }
+
+    .overlay .menu {
+        position: relative;
+        left: 90rem;
+        transition: left 0.5s ease;
+    }
+
+    /* 银土的 */
+
+    .hidden.menu {
+        display: none;
+    }
+
+    .masthead.segment {
+        min-height: 700px;
+        padding: 1em 0em;
+    }
+
+    .masthead .logo.item img {
+        margin-right: 1em;
+    }
+
+    .masthead .ui.menu .ui.button {
+        margin-left: 0.5em;
+    }
+
+    .masthead h1.ui.header {
+        margin-top: 3em;
+        margin-bottom: 0em;
+        font-size: 4em;
+        font-weight: normal;
+    }
+
+    .masthead h2 {
+        font-size: 1.7em;
+        font-weight: normal;
+    }
+
+    .ui.vertical.stripe {
+        padding: 8em 0em;
+    }
+
+    .ui.vertical.stripe h3 {
+        font-size: 2em;
+    }
+
+    .ui.vertical.stripe .button + h3,
+    .ui.vertical.stripe p + h3 {
+        margin-top: 3em;
+    }
+
+    .ui.vertical.stripe .floated.image {
+        clear: both;
+    }
+
+    .ui.vertical.stripe p {
+        font-size: 1.33em;
+    }
+
+    .ui.vertical.stripe .horizontal.divider {
+        margin: 3em 0em;
+    }
+
+    .quote.stripe.segment {
+        padding: 0em;
+    }
+
+    .quote.stripe.segment .grid .column {
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+
+    .secondary.pointing.menu .toc.item {
+        display: none;
+    }
+
+    @media only screen and (max-width: 700px) {
+        .ui.fixed.menu {
+            display: none !important;
+        }
+
+        .secondary.pointing.menu .item,
+        .secondary.pointing.menu .menu {
+            display: none;
+        }
+
+        .secondary.pointing.menu .toc.item {
+            display: block;
+        }
+
+        .masthead.segment {
+            min-height: 350px;
+        }
+
+        .masthead h1.ui.header {
+            font-size: 2em;
+            margin-top: 1.5em;
+        }
+
+        .masthead h2 {
+            margin-top: 0.5em;
+            font-size: 1.5em;
+        }
+    }
+</style>
+
 <body>
-<h1>Index界面</h1>
+
+<div th:insert="~{conponents/header::header}"></div>
+<div th:insert="~{conponents/header::pheader}"></div>
+
+
+<!-- Page Contents -->
+<div class="pusher">
+
+    <div class="ui inverted vertical masthead center aligned segment">
+
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <a class="toc item">
+                    <i class="sidebar icon"></i>
+                </a>
+                <a class="active item" th:href="@{index}">Home</a>
+                <a class="item" th:href="@{article}">博客</a>
+                <a class="item" th:href="@{life}">生活</a>
+                <a class="item" th:href="@{message}">留言</a>
+                <a class="item" th:href="@{record}">建站记录</a>
+                <div class="right item">
+                    <a class="ui inverted button" th:href="@{login}">Log in</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui text container">
+            <h1 class="ui inverted header">
+                我有个Bug想和你分享
+            </h1>
+            <h1>wǒ yǒu gè chuízi xiǎng hé nǐ fēnxiǎng</h1>
+            <div class="ui huge primary button"> Go <i class="right arrow icon"></i></div>
+        </div>
+
+    </div>
+
+
+    <div class="ui vertical stripe segment">
+        <div class="overlay">
+            <!--这个要改-->
+            <div class="ui labeled icon vertical menu">
+                <a class="item">
+                    <h5>赏杯咖啡</h5>
+                </a>
+                <a class="item"><i class="qq icon"></i></a>
+                <a class="item"><i class="weixin icon"></i></a>
+                <a class="item"><i class=" icon"><img src="../static/img/alipay.ico" alt=""></i></a>
+            </div>
+        </div>
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="eight wide column">
+                    <h3 class="ui header">xuxiao</h3>
+                    <p>男</p>
+                    <h3 class="ui header">SCACU.2018-2022</h3>
+                    <p>ITC.CST.2018.01</p>
+                </div>
+                <!-- <div class="six wide right floated column">
+                    <img src="assets/images/wireframe/white-image.png" class="ui large bordered rounded image">
+                </div> -->
+            </div>
+            <div class="row">
+                <div class="center aligned column">
+                    <a class="ui huge button">联系我</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="ui vertical stripe quote segment">
+        <div class="ui equal width stackable internally celled grid">
+            <div class="center aligned row">
+                <div class="column">
+                    <h3>知人者智，自知者明</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui vertical stripe segment">
+        <div class="ui text container">
+            <h3 class="ui header">Java.</h3>
+            <p>求知若渴，虚之若愚</p>
+            <a class="ui large button">Read More</a>
+            <h4 class="ui horizontal header divider">
+                <a th:href="@{article}">学习记录</a>
+            </h4>
+            <h3 class="ui header">前方的路在哪</h3>
+            <p>
+                改如何去探寻
+            </p>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- 页脚 -->
+
+<div th:insert="conponents/footer::footer"></div>
 </body>
+
 </html>

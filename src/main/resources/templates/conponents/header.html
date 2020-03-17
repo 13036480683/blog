@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<body>
+<div class="ui large top fixed hidden menu" th:fragment="header">
+    <div class="ui container">
+        <a class="active item" th:href="@{index}" >Home</a>
+        <a class="item" th:href="@{article}" >博客</a>
+        <a class="item" th:href="@{life}">生活</a>
+        <a class="item" th:href="@{message}">留言</a>
+        <a class="item" th:href="@{record}">建站记录</a>
+        <div class="right menu">
+            <div class="item">
+                <a class="ui button" th:href="@{login}">Log in</a>
+            </div>
+            <!-- <div class="item">
+                <a class="ui primary button">Sign Up</a>
+            </div> -->
+        </div>
+    </div>
+</div>
+<!-- Sidebar Menu --手机端的  -->
+<div class="ui vertical inverted sidebar menu" th:fragment="pheader">
+    <a class="active item" th:href="@{index}" >Home</a>
+    <a class="item" th:href="@{article}" >博客</a>
+    <a class="item" th:href="@{life}">生活</a>
+    <a class="item" th:href="@{message}">留言</a>
+    <a class="item" th:href="@{record}">建站记录</a>
+    <a class="item" th:href="@{login}">Login</a>
+</div>
+</body>
+</html>
