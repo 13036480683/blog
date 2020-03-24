@@ -5,91 +5,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>article</title>
-    <link rel="stylesheet" href="../static/css/semantic.min.css">
+    <link rel="stylesheet" th:href="@{static/css/semantic.min.css}">
 
 </head>
 
 <body>
-    <!-- 此处要导入一个导航栏 -->
-    <div th:include="header">
+<div th:insert="conponents/header::header"></div>
+<div th:insert="conponents/header::pheader"></div>
 
-    </div>
+<!-- 文章列表 -->
+<div class="ui container">
+    <div th:insert="conponents/header::head"></div>
+    <hr>
+    <div th:each="m:${articles}" class="ui divided items">
+        <div class="item">
 
-    <!-- 加载器 -->
-    <div class="ui segment">
-        <div class="ui active dimmer">
-            <div class="ui text loader">Loading</div>
-        </div>
-        <p></p>
-    </div>
-
-    <!-- 文章列表 -->
-    <div class="ui container">
-        <div class="ui divided items">
-            <div class="item">
-
-                <div class="content">
-                    <a class="header">
+            <div class="content">
+                <a class="header" th:href="@{article/{id}(id=${m.getId()})}">
+                    <font style="vertical-align: inherit;">
+                        <font style="vertical-align: inherit;" th:text="${m.getTitle()}"></font>
+                    </font>
+                </a>
+                <div class="meta">
+                    <span class="cinema"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;" th:text="${m.getContext()}">null</font></font></span>
+                </div>
+                <div class="description">
+                    <p></p>
+                </div>
+                <div class="extra">
+                    <div class="ui label">
                         <font style="vertical-align: inherit;">
-                            <font style="vertical-align: inherit;">为奴十二年</font>
+                            <font style="vertical-align: inherit;" th:text="${m.getType()}">IMAX</font>
                         </font>
-                    </a>
-                    <div class="meta">
-                        <span class="cinema"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">联合广场14</font></font></span>
                     </div>
-                    <div class="description">
-                        <p></p>
-                    </div>
-                    <div class="extra">
-                        <div class="ui label">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">IMAX</font>
-                            </font>
-                        </div>
-                        <div class="ui label"><i class="globe icon"></i>
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;"> 其他语言</font>
-                            </font>
-                        </div>
+                    <div class="ui label"><i class="globe icon"></i>
+                        <font style="vertical-align: inherit;">
+                            <font style="vertical-align: inherit;" th:text="${m.getLaguage()}"> 其他语言</font>
+                        </font>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- 页码 -->
-        <div class="ui borderless menu">
-            <a class="item">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">1 </font>
-                </font>
-            </a>
-            <a class="item">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">2 </font>
-                </font>
-            </a>
-            <a class="item">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">3 </font>
-                </font>
-            </a>
-            <a class="item">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">4 </font>
-                </font>
-            </a>
-            <a class="item">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">5 </font>
-                </font>
-            </a>
-            <a class="item">
-                <font style="vertical-align: inherit;">
-                    <font style="vertical-align: inherit;">6</font>
-                </font>
-            </a>
-        </div>
     </div>
+
+    <!-- 页码 -->
+    <div class="ui borderless menu">
+        <a class="item">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">1 </font>
+            </font>
+        </a>
+        <a class="item">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">2 </font>
+            </font>
+        </a>
+        <a class="item">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">3 </font>
+            </font>
+        </a>
+        <a class="item">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">4 </font>
+            </font>
+        </a>
+        <a class="item">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">5 </font>
+            </font>
+        </a>
+        <a class="item">
+            <font style="vertical-align: inherit;">
+                <font style="vertical-align: inherit;">6</font>
+            </font>
+        </a>
+    </div>
+</div>
+<div th:insert="conponents/footer"></div>
 
 
 </body>

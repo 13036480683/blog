@@ -44,6 +44,16 @@ public class Article implements Serializable {
 	 * default value: CURRENT_TIMESTAMP(6)
 	 */
 	private java.util.Date gmtModify;
+
+	public String getLaguage() {
+		return laguage;
+	}
+
+	public void setLaguage(String laguage) {
+		this.laguage = laguage;
+	}
+
+	private String laguage;
 	
 	public Integer getId() {
 		return this.id;

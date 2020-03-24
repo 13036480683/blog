@@ -30,5 +30,20 @@
     <a class="item" th:href="@{record}">建站记录</a>
     <a class="item" th:href="@{login}">Login</a>
 </div>
+
+
+<div class="ui  secondary inverted pointing menu" th:fragment="head">
+    <a class="toc item">
+        <i class="sidebar icon"></i>
+    </a>
+    <a class="active item" href="index">Home</a>
+    <a class="item" href="article">博客</a>
+    <a class="item" href="life">生活</a>
+    <a class="item" href="message">留言</a>
+    <a class="item" href="record">建站记录</a>
+    <div class="right item">
+        <a class="ui inverted button" href="login">Log in</a>
+    </div>
+</div>
 </body>
 </html>

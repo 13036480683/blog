@@ -31,7 +31,6 @@ public class UserController {
         return "login";
     }
 
-    //    @RequestMapping("/404")
     @RequestMapping("/notFind")
     public String NotFind(Map<String, Object> map) {
         map.put("error", "您的页面不见了");
