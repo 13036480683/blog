@@ -5,13 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 枚举文章type类型，弃用
+ * 我写这个逼玩意儿干嘛？？？？
  * @Author xuxiao
  * @create 2020-03-24
  */
 public enum TypeEnum {
-    CPP("C/C++", 0),
-    C("python", 1),
-    JAVA("Java", 2);
+    ALGORITHM("算法", 0),
+    STRUCT("数据结构", 1),
+    SOURCECODE("源码分析", 1),
+    LINUX("Linux学习", 1),
+    JAVA("Java", 1),
+    SPRINGBOOT("SpringBoot", 2);
     private String name;
     private Integer index;
 
